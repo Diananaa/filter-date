@@ -3,7 +3,7 @@ import './style.css';
 import moment from 'moment';
 
 export default function App() {
-  data = [
+  const data = [
     {
       address1: 'JL. WASPADA RAYA',
       address2: 'PADEMANGAN BARAT',
@@ -156,6 +156,7 @@ export default function App() {
     'November',
     'December',
   ];
+
   const [monthYes, setMontYes] = useState();
   const [dateYes, setDateYes] = useState();
   console.log('isi data brithday', data);
@@ -182,30 +183,25 @@ export default function App() {
   const currentDayMonth = getFormatedDate(0, 'month');
   const nextDayMonth = getFormatedDate(1, 'month');
 
-  // const valueYesterday = 7;
-  // const value = Math.abs(valueYesterday) * -1;
-  // const yesterDay = getFormatedDate(value, 'day');
-  // console.log('yesterday', yesterDay)
-
   const yesterdayMonth = (values) => {
-    const value = Math.abs(values) * -1;
-    const formula = moment().add(value, 'days');
-    const formatDate = formula.format('MM-DD');
-    console.log(formatDate);
+    var range = [];
+    console.log('dhfhds', range);
 
-    // slice
-    // const dateYesterday = formatDate.slice(3, 5);
-    // const monthYesterday = formatDate.slice(0,2)
-    // return setMontYes(monthYesterday), setDateYes(dateYesterday)
-    return console.log('formate date', formatDate);
+    for (let i = values; i < day; i++) {
+      range.push(i);
+      return range;
+    }
+    console.log(range);
+    // const value = Math.abs(values) * -1;
+    // const formula = moment().add(value, 'days');
+    // const formatDate = formula.format('MM-DD');
+    // const Date = `${formatDate.slice(3, 5)}`
+    // const Month =  `${months[parseInt(formatDate.slice(0,2))]}`
+    // return console.log(`${Date}  ${Month}`)
   };
 
-  yesterdayMonth(3);
-  // slice
-  const dateYesterday = yesterdayMonth.slice(3, 5);
-  const monthYesterday = yesterdayMonth.slice(0, 2);
+  yesterdayMonth(2);
 
-  console.log('bulan');
   const listDate = [];
   if (data) {
     const objToday = {
@@ -223,7 +219,7 @@ export default function App() {
     };
     const objYesterday = {
       id: '00000000',
-      date: `${yesterDay} ${months[parseInt(nextDayMonth, 10)]} `,
+      date: yesterdayMonth(2),
       type: 'birthdays',
       birthDays: [],
     };
