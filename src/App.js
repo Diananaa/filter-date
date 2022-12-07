@@ -184,23 +184,26 @@ export default function App() {
   const nextDayMonth = getFormatedDate(1, 'month');
 
   const yesterdayMonth = (values) => {
-    var range = [];
-    console.log('dhfhds', range);
+    const value = Math.abs(values) * -1;
+    const formula = moment().add(value, 'days');
+    const formatDate = formula.format('MM-DD');
+    const Date = `${formatDate.slice(3, 5)}`;
 
-    for (let i = values; i < day; i++) {
+    var range = [];
+
+    for (let i = 1; values < day; i++) {
+      console.log('sdfs', day);
+      const day = day - 1;
       range.push(i);
       return range;
     }
-    console.log(range);
-    // const value = Math.abs(values) * -1;
-    // const formula = moment().add(value, 'days');
-    // const formatDate = formula.format('MM-DD');
-    // const Date = `${formatDate.slice(3, 5)}`
+    console.log('dhfhds', range);
+
     // const Month =  `${months[parseInt(formatDate.slice(0,2))]}`
     // return console.log(`${Date}  ${Month}`)
   };
 
-  yesterdayMonth(2);
+  yesterdayMonth(3);
 
   const listDate = [];
   if (data) {
