@@ -272,15 +272,16 @@ export default function App() {
     console.log('listData today', listDate[0].birthDays);
     setToday (listDate[0].birthDays)
     console.log('hari ini', today)
+    console.log('hari ini', today)
   }
   return (
     <div>
-      {listDate[0].birthDays.slice(0,2).map((item)=>{
+      {/* {listDate[0].birthDays.slice(0,2).map((item)=>{
         return (
           <p>{item.name}</p>
 
         )
-      })}
+      })} */}
       <h1>Hello StackBlitz!</h1>
       <p>Start editing to see some magic happen :)</p>
     </div>
