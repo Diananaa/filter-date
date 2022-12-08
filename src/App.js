@@ -25,7 +25,7 @@ export default function App() {
       clientName: 'TEGUH SUSANTO',
       clientNumber: '6778108',
       clientStatus: 'Despatch Address; Life Assured; Owner; Payer',
-      dateOfBirth: '6 December 1989',
+      dateOfBirth: '9 December 1989',
       old: 33,
     },
     {
@@ -37,7 +37,7 @@ export default function App() {
       clientName: 'TEGUH SNTO',
       clientNumber: '67782508',
       clientStatus: 'Despatch Address; Life Assured; Owner; Payer',
-      dateOfBirth: '6 December 1989',
+      dateOfBirth: '9 December 1989',
       old: 33,
     },
     {
@@ -49,7 +49,7 @@ export default function App() {
       clientName: 'TH SUSANTO',
       clientNumber: '67782208',
       clientStatus: 'Despatch Address; Life Assured; Owner; Payer',
-      dateOfBirth: '6 December 1989',
+      dateOfBirth: '9 December 1989',
       old: 33,
     },
     {
@@ -157,8 +157,7 @@ export default function App() {
     'December',
   ];
 
-  const [monthYes, setMontYes] = useState();
-  const [dateYes, setDateYes] = useState();
+  const [today, setToday] = useState({});
   console.log('isi data brithday', data);
   const getFormatedDate = (add = 0, type = 'string') => {
     const newDate = moment().add(add, 'day').toDate();
@@ -203,7 +202,7 @@ export default function App() {
     // return console.log(`${Date}  ${Month}`)
   };
 
-  yesterdayMonth(3);
+  // yesterdayMonth(3);
 
   const listDate = [];
   if (data) {
@@ -220,12 +219,12 @@ export default function App() {
       type: 'birthdays',
       birthDays: [],
     };
-    const objYesterday = {
-      id: '00000000',
-      date: yesterdayMonth(2),
-      type: 'birthdays',
-      birthDays: [],
-    };
+    // const objYesterday = {
+    //   id: '00000000',
+    //   date: yesterdayMonth(2),
+    //   type: 'birthdays',
+    //   birthDays: [],
+    // };
 
     data.forEach((x) => {
       const dateFilter = parseInt(
@@ -269,9 +268,19 @@ export default function App() {
     }
     console.log('todayyy data', objToday);
     console.log('todayyy data', objTomorrow);
+    console.log('listData', listDate);
+    console.log('listData today', listDate[0].birthDays);
+    setToday (listDate[0].birthDays)
+    console.log('hari ini', today)
   }
   return (
     <div>
+      {listDate[0].birthDays.slice(0,2).map((item)=>{
+        return (
+          <p>{item.name}</p>
+
+        )
+      })}
       <h1>Hello StackBlitz!</h1>
       <p>Start editing to see some magic happen :)</p>
     </div>
