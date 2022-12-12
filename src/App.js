@@ -10,7 +10,7 @@ export default function App() {
       address3: 'PADEMANGAN',
       address4: 'JAKARTA',
       address5: 'DKI JAKARTA',
-      clientName: 'TEGUH SUSANTO',
+      clientName: 'TEGUH SUSANTOjfbdj',
       clientNumber: '67782808',
       clientStatus: 'Despatch Address; Life Assured; Owner; Payer',
       dateOfBirth: '5 December 1989',
@@ -22,10 +22,10 @@ export default function App() {
       address3: 'PADEMANGAN',
       address4: 'JAKARTA',
       address5: 'DKI JAKARTA',
-      clientName: 'TEGUH SUSANTO',
+      clientName: 'TEGUH SUSANTOhehe',
       clientNumber: '6778108',
       clientStatus: 'Despatch Address; Life Assured; Owner; Payer',
-      dateOfBirth: '9 December 1989',
+      dateOfBirth: '11 December 1989',
       old: 33,
     },
     {
@@ -34,10 +34,10 @@ export default function App() {
       address3: 'PADEMANGAN',
       address4: 'JAKARTA',
       address5: 'DKI JAKARTA',
-      clientName: 'TEGUH SNTO',
+      clientName: 'TEGUH SNTO lala',
       clientNumber: '67782508',
       clientStatus: 'Despatch Address; Life Assured; Owner; Payer',
-      dateOfBirth: '9 December 1989',
+      dateOfBirth: '11 December 1989',
       old: 33,
     },
     {
@@ -49,7 +49,7 @@ export default function App() {
       clientName: 'TH SUSANTO',
       clientNumber: '67782208',
       clientStatus: 'Despatch Address; Life Assured; Owner; Payer',
-      dateOfBirth: '9 December 1989',
+      dateOfBirth: '11 December 1989',
       old: 33,
     },
     {
@@ -61,7 +61,7 @@ export default function App() {
       clientName: 'URWANTI',
       clientNumber: '66871436',
       clientStatus: 'Beneficiary; Despatch Address; Owner; Payer',
-      dateOfBirth: '7 December 1965',
+      dateOfBirth: '13 December 1965',
       old: 56,
     },
     {
@@ -73,7 +73,7 @@ export default function App() {
       clientName: 'PURWNTI',
       clientNumber: '66871436',
       clientStatus: 'Beneficiary; Despatch Address; Owner; Payer',
-      dateOfBirth: '7 December 1965',
+      dateOfBirth: '13 December 1965',
       old: 56,
     },
     {
@@ -85,7 +85,7 @@ export default function App() {
       clientName: 'PURWANI',
       clientNumber: '66871436',
       clientStatus: 'Beneficiary; Despatch Address; Owner; Payer',
-      dateOfBirth: '7 December 1965',
+      dateOfBirth: '13 December 1965',
       old: 56,
     },
     {
@@ -97,7 +97,7 @@ export default function App() {
       clientName: 'YUDHIWIRA',
       clientNumber: '50508031',
       clientStatus: 'Despatch Address; Life Assured; Owner',
-      dateOfBirth: '8 December 1973',
+      dateOfBirth: '12 December 1973',
       old: 48,
     },
     {
@@ -109,7 +109,7 @@ export default function App() {
       clientName: 'YUDWIRA',
       clientNumber: '50508031',
       clientStatus: 'Despatch Address; Life Assured; Owner',
-      dateOfBirth: '8 December 1973',
+      dateOfBirth: '12 December 1973',
       old: 48,
     },
     {
@@ -121,7 +121,7 @@ export default function App() {
       clientName: 'UDHIWIRA',
       clientNumber: '50508031',
       clientStatus: 'Despatch Address; Life Assured; Owner',
-      dateOfBirth: '8 December 1973',
+      dateOfBirth: '12 December 1973',
       old: 48,
     },
   ];
@@ -182,27 +182,32 @@ export default function App() {
   const currentDayMonth = getFormatedDate(0, 'month');
   const nextDayMonth = getFormatedDate(1, 'month');
 
-  const yesterdayMonth = (values) => {
-    const value = Math.abs(values) * -1;
-    const formula = moment().add(value, 'days');
-    const formatDate = formula.format('MM-DD');
-    const Date = `${formatDate.slice(3, 5)}`;
+  // yesterday
+  const value = Math.abs(1) * -1;
+  const formula = moment().add(value, 'days');
+  const formatDate = formula.format('MM-DD').toString(); 
 
-    var range = [];
+  const DateDay = `${formatDate.slice(3, 5)}`; //day
+  const DateMonth = `${formatDate.slice(0, 2)}`; //month
 
-    for (let i = 1; values < day; i++) {
-      console.log('sdfs', day);
-      const day = day - 1;
-      range.push(i);
-      return range;
-    }
-    console.log('dhfhds', range);
+  const yesterday = Number (DateDay) 
+  const yesterdayMonth = Number (DateMonth)
 
-    // const Month =  `${months[parseInt(formatDate.slice(0,2))]}`
-    // return console.log(`${Date}  ${Month}`)
-  };
+  // const yesterdayMonth = (values) => {
+  //   const value = Math.abs(values) * -1;
+  //   const formula = moment().add(value, 'days');
+  //   const formatDate = formula.format('MM-DD').toString(); 
 
-  // yesterdayMonth(3);
+  //   const DateDay = `${formatDate.slice(3, 5)}`; //day
+  //   const DateMonth = `${formatDate.slice(0, 2)}`; //month
+
+  //   const yesterday = Number (DateDay) 
+  //   const yesterdayMonth = Number (DateMonth) 
+
+  //   return yesterday, yesterdayMonth
+  // };
+
+  // console.log('yes', `${yesterday} ${months[parseInt(formatNumberDateMonth, 10)]}`)
 
   const listDate = [];
   if (data) {
@@ -219,19 +224,18 @@ export default function App() {
       type: 'birthdays',
       birthDays: [],
     };
-    // const objYesterday = {
-    //   id: '00000000',
-    //   date: yesterdayMonth(2),
-    //   type: 'birthdays',
-    //   birthDays: [],
-    // };
+    const objYesterday = {
+      id: '00000000',
+      date: `${yesterday} ${months[parseInt(yesterdayMonth, 10)]}`,
+      type: 'birthdays',
+      birthDays: [],
+    };
 
     data.forEach((x) => {
       const dateFilter = parseInt(
         x.dateOfBirth.slice(0, 2).replace(' ', ''),
         10
       );
-
       const slicedDate = x.dateOfBirth.slice(0, -4);
       const monthData = slicedDate.split(' ')[1];
       const idxMonthData = parseInt(monthsEng.indexOf(monthData), 10);
@@ -239,7 +243,9 @@ export default function App() {
         (parseInt(day, 10) === dateFilter &&
           parseInt(currentDayMonth, 10) === idxMonthData) || // Today
         (parseInt(nextDay, 10) === dateFilter &&
-          parseInt(nextDayMonth, 10) === idxMonthData) // Tomorrow
+          parseInt(nextDayMonth, 10) === idxMonthData) || // Tomorrow
+        (parseInt(yesterday, 10) === dateFilter &&
+          parseInt(yesterdayMonth, 10) === idxMonthData) // yesterday
       ) {
         if (
           parseInt(day, 10) === dateFilter &&
@@ -249,6 +255,7 @@ export default function App() {
             name: x.clientName,
             clientNumber: x.clientNumber,
           });
+
         } else if (
           parseInt(nextDay, 10) === dateFilter &&
           parseInt(nextDayMonth, 10) === idxMonthData
@@ -257,22 +264,32 @@ export default function App() {
             name: x.clientName,
             clientNumber: x.clientNumber,
           });
+        } else if (
+          parseInt(yesterday, 10) === dateFilter &&
+          parseInt(yesterdayMonth, 10) === idxMonthData
+        ) {
+          objYesterday.birthDays.push({
+            name: x.clientName,
+            clientNumber: x.clientNumber,
+          } )
         }
       }
 
       return true;
     });
-    if (objToday.birthDays.length > 0 || objTomorrow.birthDays.length > 0) {
+    if (objToday.birthDays.length > 0 || objTomorrow.birthDays.length > 0 || objYesterday.birthDays.length > 0) {
       listDate.push(objToday);
       listDate.push(objTomorrow);
+      listDate.push(objYesterday)
     }
     console.log('todayyy data', objToday);
-    console.log('todayyy data', objTomorrow);
+    console.log('tomororw data', objTomorrow);
+    console.log('yesterday data', objYesterday);
     console.log('listData', listDate);
-    console.log('listData today', listDate[0].birthDays);
-    setToday (listDate[0].birthDays)
-    console.log('hari ini', today)
-    console.log('hari ini', today)
+    // console.log('listData today', listDate[0].birthDays);
+    // setToday (listDate[0].birthDays)
+    console.log('hari ini', today);
+    console.log('hari ini', today);
   }
   return (
     <div>
